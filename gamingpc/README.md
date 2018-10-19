@@ -1,4 +1,3 @@
 # gamingpc
 
-TODO: Enter the cookbook description here.
-
+Chef cookbook with the essential software for a gaming PC.
