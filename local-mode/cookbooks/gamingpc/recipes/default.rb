@@ -18,6 +18,6 @@ end
 ### Installs Python. ###
 #######################################################################
 chocolatey_package 'Python' do
+  options "--ignore-checksums --force"
   package_name 'python'
-  source "placeholder"
 end

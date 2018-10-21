@@ -1,0 +1,6 @@
+DEPENDENCIES
+  gamingpc
+    path: ../gamingpc
+
+GRAPH
+  gamingpc (0.1.0)
