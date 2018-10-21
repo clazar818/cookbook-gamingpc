@@ -1,0 +1,47 @@
+{
+    "window.zoomLevel": -1,
+    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "workbench.activityBar.visible": true,
+    "search.location": "panel",
+    "editor.minimap.enabled": true,
+    "editor.renderWhitespace": "none",
+    "breadcrumbs.enabled": false,
+    "editor.renderControlCharacters": false,
+    "workbench.colorTheme": "Monokai Dimmed",
+    "workbench.iconTheme": "vscode-icons",
+    
+
+    "editor.minimap.showSlider": "always",
+    "editor.tabCompletion":"on",
+    "editor.suggestOnTriggerCharacters": true,
+    
+    "workbench.colorCustomizations" : {
+        "activityBar.border": "#ff0000",
+        "terminal.foreground" : "#ff0000",
+        "terminal.background" : "#000000",
+        "scrollbarSlider.background":"#ff00002c",
+        "scrollbarSlider.hoverBackground":"#ff0000",
+        "dropdown.border": "#ff0000",
+        "dropdown.foreground": "#ff0000",
+        "dropdown.background": "#000000",
+        "settings.checkboxBackground": "#000000",
+        "settings.textInputBorder": "#ff0000",
+
+        "editor.background": "#000000",
+        "tab.activeBorder" :"#ff0000",
+        "tab.hoverBackground" :"#ff0000",
+        "progressBar.background":"#ff0000",
+        "editorCursor.foreground": "#ff0000",
+        "activityBarBadge.background": "#ff0000",
+        "activityBar.background": "#000000",
+        "editor.selectionHighlightBackground": "#135564"
+    },
+    "editor.tokenColorCustomizations" :{
+        "keywords": "#fffffffe",
+        "functions": "#ff4d00" ,
+        "strings": "#00ff22",
+        "comments": "#ff0000"
+
+    }
+}
+
