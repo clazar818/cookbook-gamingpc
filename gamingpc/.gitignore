@@ -20,3 +20,7 @@ bin/*
 Berksfile.lock
 .zero-knife.rb
 Policyfile.lock.json
+
+
+# local mode custom folder
+local-mode\nodes
