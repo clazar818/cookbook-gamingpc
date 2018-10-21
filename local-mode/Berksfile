@@ -1,4 +1,5 @@
 # frozen_string_literal: true
 source 'https://supermarket.chef.io'
 
+
 cookbook 'gamingpc', path: 'C:\\Git\\Personal Workspace\\Chef\\cookbooks\\cookbook-gamingpc\\gamingpc'
