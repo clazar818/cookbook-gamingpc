@@ -1,3 +1,5 @@
 Chef Extension
 GitLens
+Notepad++ keymap
+Powershell
 vscode-icons
