@@ -3,4 +3,8 @@ DEPENDENCIES
     path: ../gamingpc
 
 GRAPH
+  chrome (4.0.2)
+    dmg (>= 3.0)
+  dmg (4.1.1)
   gamingpc (0.1.0)
+    chrome (>= 0.0.0)

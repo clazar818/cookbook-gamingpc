@@ -14,10 +14,20 @@ powershell_script 'Install Chocolatey' do
   not_if 'Test-Path C:\\ProgramData\\chocolatey'
 end
 
+
+
 #######################################################################
-### Installs FireFox. ###
+### Installs Google Chrome. ###
 #######################################################################
-# include_recipe 'firefox'
+include_recipe 'chrome'
+
+chrome 'custom_preferences' do
+  parameters(
+    homepage: 'https://facebook.com/'
+  )
+  action :master_preferences
+end
+
 
 #######################################################################
 ### Installs Python. ###
@@ -33,4 +43,30 @@ end
 chocolatey_package 'Spotify' do
   options '--ignore-checksums'
   package_name 'spotify'
+end
+
+#######################################################################
+### Installs Battle.net ###
+#######################################################################
+chocolatey_package 'Battle.net' do
+  options '--ignore-checksums'
+  package_name 'battle.net'
+end
+
+=begin
+#######################################################################
+### Installs Visual Studio Code ###
+#######################################################################
+chocolatey_package 'Visual Studio Code' do
+  options '--ignore-checksums'
+  package_name 'vscode'
+end
+=end
+
+#######################################################################
+### Installs  Malwarebytes Anti-Malware  ###
+#######################################################################
+chocolatey_package 'Malwarebytes Anti-Malware' do
+  options '--ignore-checksums'
+  package_name 'malwarebytes'
 end
