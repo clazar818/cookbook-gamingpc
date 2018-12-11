@@ -9,8 +9,6 @@
     "editor.renderControlCharacters": false,
     "workbench.colorTheme": "Monokai Dimmed",
     "workbench.iconTheme": "vscode-icons",
-`
-
     "editor.minimap.showSlider": "always",
     "editor.tabCompletion":"on",
     "editor.suggestOnTriggerCharacters": true,
