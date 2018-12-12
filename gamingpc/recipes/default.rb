@@ -15,7 +15,6 @@ powershell_script 'Install Chocolatey' do
 end
 
 
-
 #######################################################################
 ### Installs Google Chrome. ###
 #######################################################################
@@ -23,18 +22,9 @@ include_recipe 'chrome'
 
 chrome 'custom_preferences' do
   parameters(
-    homepage: 'https://facebook.com/'
+    homepage: 'https://google.com/'
   )
   action :master_preferences
-end
-
-
-#######################################################################
-### Installs Python. ###
-#######################################################################
-chocolatey_package 'Python' do
-  options '--ignore-checksums'
-  package_name 'python'
 end
 
 #######################################################################
@@ -46,11 +36,25 @@ chocolatey_package 'Spotify' do
 end
 
 #######################################################################
-### Installs Battle.net ###
+### Installs Battle.net - alongside World of Warcraft and Overwatch. ##
 #######################################################################
 chocolatey_package 'Battle.net' do
   options '--ignore-checksums'
   package_name 'battle.net'
+end
+
+powershell_script 'Install Overwatch' do
+  code <<-EOH
+    cd "C:\\Program Files (x86)\\Battle.net"
+    ./battle.net.exe –-game=prometheus –-install  
+  EOH
+end
+
+powershell_script 'Install World of Warcraft' do
+  code <<-EOH
+    cd "C:\\Program Files (x86)\\Battle.net"
+    ./battle.net.exe –-game=Wow –-install  
+  EOH
 end
 
 
@@ -62,6 +66,13 @@ chocolatey_package 'Visual Studio Code' do
   package_name 'vscode'
 end
 
+#######################################################################
+### MSIAfterburner ###
+#######################################################################
+chocolatey_package 'MSIAfterburner' do
+  options '--ignore-checksums'
+  package_name 'msiafterburner'
+end
 
 #######################################################################
 ### Installs  Malwarebytes Anti-Malware  ###
