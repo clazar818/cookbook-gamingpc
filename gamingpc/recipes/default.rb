@@ -9,7 +9,7 @@
 #######################################################################
 powershell_script 'Install Chocolatey' do
   code <<-EOH
-  iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+    iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
   EOH
   not_if 'Test-Path C:\\ProgramData\\chocolatey'
 end
@@ -66,6 +66,10 @@ chocolatey_package 'Visual Studio Code' do
   package_name 'vscode'
 end
 
+template '~\\AppData\\Roaming\\Code\\User\\settings.json' do 
+  source 'VSCodeSettings.erb' 
+end 
+
 #######################################################################
 ### MSIAfterburner ###
 #######################################################################
@@ -80,4 +84,59 @@ end
 chocolatey_package 'Malwarebytes Anti-Malware' do
   options '--ignore-checksums'
   package_name 'malwarebytes'
+end
+
+#######################################################################
+### Installs  Discord  ###
+#######################################################################
+chocolatey_package 'Discord' do
+  options '--ignore-checksums'
+  package_name 'discord'
+end
+
+#######################################################################
+### Installs  Steam  ###
+#######################################################################
+chocolatey_package 'Steam' do
+  options '--ignore-checksums'
+  package_name 'steam'
+end
+
+
+#######################################################################
+### Installs  Origin  ###
+#######################################################################
+chocolatey_package 'Origin' do
+  options '--ignore-checksums'
+  package_name 'origin'
+end
+
+
+#######################################################################
+### Installs  AVG Anti Virus  ###
+#######################################################################
+chocolatey_package 'AVG Anti Virus' do
+  options '--ignore-checksums'
+  package_name 'avgantivirusfree'
+end
+
+#######################################################################
+### Creates a Windows System Restore Point  ###
+#######################################################################
+
+# Modifies Registry such that you can create system restore checkpoints every 5 hours (300mins) instead of every 24hrs
+registry_key "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\SystemRestore" do
+  values [{
+    name: 'SystemRestorePointCreationFrequency',
+    type: :dword,
+    data: 300
+  }]
+  action :create
+end
+
+powershell_script 'Create a System Restore Point' do
+  code <<-EOH
+    $DateTime = Get-Date -Format "yyyy-MM-dd-HH:mm"
+    Checkpoint-Computer -Description "Post Chef Execution - $($DateTime)"  
+  EOH
 end
