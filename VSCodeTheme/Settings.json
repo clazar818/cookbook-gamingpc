@@ -1,45 +1,111 @@
 {
-    "window.zoomLevel": -1,
     "terminal.integrated.shell.windows": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
-    "workbench.activityBar.visible": true,
-    "search.location": "panel",
-    "editor.minimap.enabled": true,
     "editor.renderWhitespace": "none",
-    "breadcrumbs.enabled": false,
     "editor.renderControlCharacters": false,
-    "workbench.colorTheme": "Monokai Dimmed",
     "workbench.iconTheme": "vscode-icons",
     "editor.minimap.showSlider": "always",
-    "editor.tabCompletion":"on",
+    "editor.tabCompletion": "on",
     "editor.suggestOnTriggerCharacters": true,
-    
-    "workbench.colorCustomizations" : {
+    "workbench.colorCustomizations": {
         "activityBar.border": "#ff0000",
-        "terminal.foreground" : "#ff0000",
-        "terminal.background" : "#000000",
-        "scrollbarSlider.background":"#ff00002c",
-        "scrollbarSlider.hoverBackground":"#ff0000",
+        "terminal.foreground": "#00ff22",
+        "terminal.background": "#000000",
+        "scrollbarSlider.background": "#ff00002c",
+        "scrollbarSlider.hoverBackground": "#ff0000",
         "dropdown.border": "#ff0000",
         "dropdown.foreground": "#ff0000",
         "dropdown.background": "#000000",
         "settings.checkboxBackground": "#000000",
         "settings.textInputBorder": "#ff0000",
-
         "editor.background": "#000000",
-        "tab.activeBorder" :"#ff0000",
-        "tab.hoverBackground" :"#ff0000",
-        "progressBar.background":"#ff0000",
+        "tab.activeBorder": "#ff0000",
+        "tab.hoverBackground": "#ff0000",
+        "progressBar.background": "#ff0000",
         "editorCursor.foreground": "#ff0000",
         "activityBarBadge.background": "#ff0000",
         "activityBar.background": "#000000",
-        "editor.selectionHighlightBackground": "#135564"
+        "minimap.errorHighlight": "#ff0000",
+        "minimap.selectionOccurrenceHighlight": "#ff0000",
+        "terminal.selectionBackground": "#ff000040",
+        "minimapSlider.background": "#ff000040",
+        "minimapSlider.hoverBackground": "#ff000060",
+        "minimapSlider.activeBackground": "#ff000080",
+        "list.activeSelectionBackground": "#ff000040",
+        "list.inactiveSelectionBackground": "#ff000030",
+        "list.hoverBackground": "#ff000020",
+        "editor.selectionBackground": "#ff000030",
+        "editor.selectionHighlightBackground": "#ff000020"
     },
-    "editor.tokenColorCustomizations" :{
+    "editor.tokenColorCustomizations": {
         "keywords": "#fffffffe",
-        "functions": "#ff4d00" ,
+        "functions": "#ff4d00",
         "strings": "#00ff22",
         "comments": "#ff0000"
+    },
+    "vsicons.presets.jsonOfficial": true,
+    "workbench.editorAssociations": {
+        "*.copilotmd": "vscode.markdown.preview.editor",
+        "*.ipynb": "jupyter.notebook.ipynb",
+        "*.csv": "gc-excelviewer-csv-editor"
+    },
+    "security.workspace.trust.untrustedFiles": "open",
+    "editor.tabSize": 2,
+    "git.autofetch": true,
+    "hediet.vscode-drawio.local-storage": "eyIuZHJhd2lvLWNvbmZpZyI6IntcImxhbmd1YWdlXCI6XCJcIixcImN1c3RvbUZvbnRzXCI6W10sXCJsaWJyYXJpZXNcIjpcImdlbmVyYWxcIixcImN1c3RvbUxpYnJhcmllc1wiOltcIkwuc2NyYXRjaHBhZFwiXSxcInBsdWdpbnNcIjpbXSxcInJlY2VudENvbG9yc1wiOltdLFwiZm9ybWF0V2lkdGhcIjpcIjI0MFwiLFwiY3JlYXRlVGFyZ2V0XCI6ZmFsc2UsXCJwYWdlRm9ybWF0XCI6e1wieFwiOjAsXCJ5XCI6MCxcIndpZHRoXCI6ODUwLFwiaGVpZ2h0XCI6MTEwMH0sXCJzZWFyY2hcIjp0cnVlLFwic2hvd1N0YXJ0U2NyZWVuXCI6dHJ1ZSxcImdyaWRDb2xvclwiOlwiI2QwZDBkMFwiLFwiZGFya0dyaWRDb2xvclwiOlwiIzZlNmU2ZVwiLFwiYXV0b3NhdmVcIjp0cnVlLFwicmVzaXplSW1hZ2VzXCI6bnVsbCxcIm9wZW5Db3VudGVyXCI6MCxcInZlcnNpb25cIjoxOCxcInVuaXRcIjoxLFwiaXNSdWxlck9uXCI6ZmFsc2UsXCJ1aVwiOlwiXCJ9In0=",
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "extensions.autoUpdate": "off",
+    "editor.guides.bracketPairs": true,
+    "githubPullRequests.pullBranch": "never",
+    "window.menuBarVisibility": "compact",
+    "workbench.startupEditor": "none",
+    "[python]": {
+        "editor.formatOnType": true
+    },
+    "[powershell]": {
+        "debug.saveBeforeStart": "nonUntitledEditorsInActiveGroup",
+        "editor.semanticHighlighting.enabled": false,
+        "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?"
+    },
+    "json.schemas": [],
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+    "editor.largeFileOptimizations": false,
+    "githubPullRequests.terminalLinksHandler": "github",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "[yaml]": {
+        "diffEditor.ignoreTrimWhitespace": false
+    },
+    "powershell.powerShellAdditionalExePaths": {
+        "powershell": "/opt/homebrew/bin/pwsh"
+    },
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "hediet.vscode-drawio.resizeImages": null,
+    "launch": {
+        "configurations": [],
+        "compounds": []
+    },
+    "gitlens.views.scm.grouped.views": {
+        "commits": true,
+        "branches": true,
+        "remotes": true,
+        "stashes": true,
+        "tags": true,
+        "worktrees": true,
+        "contributors": true,
+        "fileHistory": false,
+        "repositories": true,
+        "searchAndCompare": true,
+        "launchpad": false
+    },
+    "snyk.advanced.cliPath": "/Users/206827846/Library/Application Support/snyk/vscode-cli/snyk-macos-arm64",
+    "snyk.yesWelcomeNotification": false,
+    "snyk.trustedFolders": [
+        "/Users/206827846/repos"
+    ],
+    "gitlens.ai.model": "vscode",
+    "gitlens.ai.vscode.model": "copilotcli:",
+    "workbench.settings.applyToAllProfiles": [
 
-    }
+    ],
+    "window.commandCenter": false
 }
-
