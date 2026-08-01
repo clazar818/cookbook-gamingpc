@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Red Matrix Rain</title>
+<style>
+  * { margin: 0; padding: 0; }
+  body { background: #000; overflow: hidden; }
+  canvas { display: block; }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<script>
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+let W = canvas.width = window.innerWidth;
+let H = canvas.height = window.innerHeight;
+
+const FONT_SIZE = 14;
+const COLS = Math.floor(W / FONT_SIZE);
+//const chars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ@#$%&*+=<>{}[]|/\\~^';
+const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ@#$%&*+=<>{}[]|/\\~^';
+const charArr = chars.split('');
+
+// Each column state
+const drops = new Array(COLS);
+const speeds = new Array(COLS);
+const lengths = new Array(COLS);
+const trails = []; // Store trail characters per column
+
+for (let i = 0; i < COLS; i++) {
+  drops[i] = Math.random() * -100;
+  speeds[i] = 0.002 + Math.random() * 0.004;
+  lengths[i] = 10 + Math.floor(Math.random() * 25);
+  trails[i] = [];
+  for (let j = 0; j < lengths[i]; j++) {
+    trails[i][j] = charArr[Math.floor(Math.random() * charArr.length)];
+  }
+}
+
+function resetColumn(i) {
+  drops[i] = Math.random() * -20;
+  speeds[i] = 0.002 + Math.random() * 0.004;
+  lengths[i] = 10 + Math.floor(Math.random() * 25);
+  trails[i] = [];
+  for (let j = 0; j < lengths[i]; j++) {
+    trails[i][j] = charArr[Math.floor(Math.random() * charArr.length)];
+  }
+}
+
+function draw() {
+  // Semi-transparent black overlay for fade effect
+  ctx.fillStyle = 'rgba(0, 0, 0, 0.03)';
+  ctx.fillRect(0, 0, W, H);
+
+  ctx.font = FONT_SIZE + 'px monospace';
+
+  for (let i = 0; i < COLS; i++) {
+    const x = i * FONT_SIZE;
+    const headY = Math.floor(drops[i]);
+
+    // Randomly mutate trail characters
+    if (Math.random() < 0.02) {
+      const idx = Math.floor(Math.random() * trails[i].length);
+      trails[i][idx] = charArr[Math.floor(Math.random() * charArr.length)];
+    }
+
+    // Draw trail (body) from tail to head
+    for (let j = 0; j < lengths[i]; j++) {
+      const rowY = headY - j;
+      if (rowY < 0 || rowY * FONT_SIZE > H) continue;
+
+      const progress = j / lengths[i];
+      const alpha = 1.0 - progress * progress;
+
+      if (alpha < 0.05) continue;
+
+      // Deep red body with brightness falloff
+      const r = Math.floor(255 * alpha);
+      const g = Math.floor(20 * alpha);
+      const b = Math.floor(20 * alpha);
+      ctx.fillStyle = `rgba(${r},${g},${b},${alpha})`;
+      ctx.fillText(trails[i][j] || '0', x, rowY * FONT_SIZE);
+    }
+
+    // Draw head - bright white/pink sparkle
+    if (headY >= 0 && headY * FONT_SIZE <= H) {
+      // Glow layer
+      ctx.shadowColor = '#ff2040';
+      ctx.shadowBlur = 15;
+      ctx.fillStyle = '#fff0f0';
+      const headChar = charArr[Math.floor(Math.random() * charArr.length)];
+      ctx.fillText(headChar, x, headY * FONT_SIZE);
+      ctx.shadowBlur = 0;
+
+      // Second bright layer
+      ctx.fillStyle = '#ffffff';
+      ctx.fillText(headChar, x, headY * FONT_SIZE);
+    }
+
+    // Advance drop
+    drops[i] += speeds[i];
+
+    // Reset when tail is off screen
+    if ((drops[i] - lengths[i]) * FONT_SIZE > H) {
+      if (Math.random() > 0.975) {
+        resetColumn(i);
+      } else {
+        resetColumn(i);
+      }
+    }
+  }
+
+  // Add occasional bright sparkle flickers
+  for (let s = 0; s < 3; s++) {
+    const sx = Math.floor(Math.random() * COLS) * FONT_SIZE;
+    const sy = Math.floor(Math.random() * (H / FONT_SIZE)) * FONT_SIZE;
+    ctx.shadowColor = '#ff0000';
+    ctx.shadowBlur = 10;
+    ctx.fillStyle = `rgba(255,180,180,${0.3 + Math.random() * 0.4})`;
+    ctx.fillText(charArr[Math.floor(Math.random() * charArr.length)], sx, sy);
+    ctx.shadowBlur = 0;
+  }
+
+  requestAnimationFrame(draw);
+}
+
+// Initial black fill
+ctx.fillStyle = '#000';
+ctx.fillRect(0, 0, W, H);
+draw();
+</script>
+</body>
+</html>
